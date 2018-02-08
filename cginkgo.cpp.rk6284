@@ -1,0 +1,76 @@
+#include "cginkgo.h"
+
+
+
+CGinkgo::CGinkgo()
+{
+
+}
+
+#if 1
+int32_t  CGinkgo::scan_device( uint8_t need_init )
+{
+    return VSI_ScanDevice( need_init );
+}
+
+int32_t    CGinkgo::open_deivce(int32_t dev_type,int32_t dev_index,int32_t reserved)
+{
+    return VSI_OpenDevice(dev_type,dev_index,reserved);
+}
+
+int32_t    CGinkgo::close_device(int32_t dev_type,int32_t dev_index)
+{
+   return  VSI_CloseDevice(dev_type,dev_index);
+}
+
+int32_t    CGinkgo::init_spi(int32_t dev_type, int32_t dev_index, PVSI_INIT_CONFIG p_init_config)
+{
+    return VSI_InitSPI(dev_type,dev_index,p_init_config);
+}
+
+int32_t    CGinkgo::read_board_info(int32_t dev_type,int32_t dev_index,PVSI_BOARD_INFO p_info)
+{
+    return VSI_ReadBoardInfo(dev_type,dev_index,p_info);
+    return 0;
+}
+
+int32_t    CGinkgo::write_bytes(int32_t dev_type,int32_t dev_index,int32_t spi_index,uint8_t *p_data,uint16_t len)
+{
+    return VSI_WriteBytes( dev_type,dev_index,spi_index,p_data,len );
+}
+
+int32_t    CGinkgo::read_bytes(int32_t dev_type,int32_t dev_index,int32_t spi_index,uint8_t *p_data,uint16_t len)
+{
+    return VSI_ReadBytes(dev_type,dev_index,spi_index,p_data,len);
+}
+
+int32_t    CGinkgo::write_read_bytes(int32_t dev_type,int32_t dev_index,int32_t spi_index,uint8_t* p_write_data,uint16_t write_len,uint8_t * p_read_data,uint16_t read_len)
+{
+    return VSI_WriteReadBytes(dev_type,dev_index,spi_index,p_write_data,write_len,p_read_data,read_len);
+}
+
+int32_t    CGinkgo::write_bits(int32_t dev_type,int32_t dev_index,int32_t spi_index,uint8_t *p_write_bit_str)
+{
+    return VSI_WriteBits(dev_type,dev_index,spi_index,p_write_bit_str);
+}
+
+int32_t    CGinkgo::read_bits(int32_t dev_type,int32_t dev_index,int32_t spi_index,uint8_t *p_read_bit_str,int32_t read_bits_num)
+{
+    return VSI_ReadBits(dev_type,dev_index,spi_index,p_read_bit_str,read_bits_num);
+}
+
+int32_t    CGinkgo::write_read_bits(int32_t dev_type,int32_t dev_index,int32_t spi_index,uint8_t *p_write_bit_str,uint8_t *p_read_bit_str,int32_t read)
+{
+    return VSI_WriteReadBits(dev_type,dev_index,spi_index,p_write_bit_str,p_read_bit_str,read);
+}
+
+int32_t    CGinkgo::slave_read_bytes(int32_t dev_type,int32_t dev_index,uint8_t *p_read_data,int32_t *p_bytes_num,int32_t wait_time)
+{
+   return  VSI_SlaveReadBytes(dev_type,dev_index,p_read_data,p_bytes_num,wait_time);
+}
+
+int32_t    CGinkgo::slave_write_bytes(int32_t dev_type,int32_t dev_index,uint8_t *p_write_data,int32_t write_bytes_num)
+{
+    return VSI_SlaveWriteBytes( dev_type, dev_index, p_write_data, write_bytes_num );
+}
+#endif
